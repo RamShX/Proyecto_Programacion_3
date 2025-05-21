@@ -6,6 +6,6 @@ namespace P0006.Models.ViewModels
 	{
 		public int Id { get; set; }
 		public string _Email { get; set; }
-		public int _Edad { get; set; }
+		public int? _Edad { get; set; }
     }
 }
