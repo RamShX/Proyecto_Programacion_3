@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutApp.cshtml";
+}
+
+<div class="row">
+    <form id="frmAcceder">
+        <div class="col-lg-6 col-lg-offset-0">
+            <br />
+            <br />
+            <br />
+            <div>
+                Usuario
+                <input type="text"
+                       name="usuario"
+                       class="form-control" />
+            </div>
+
+            <br />
+
+            <div>
+                Contraseña
+                <input type="password"
+                       name="password"
+                       class="form-control" />
+            </div>
+
+            <br />
+            <br />
+
+            <div>
+                <input type="submit"
+                       class="btn btn-success btn-lg"
+                       value="Entrar" />
+            </div>
+        </div>
+    </form>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#frmAcceder").submit(function (e) {//Me permite capturar el evento submit del formulario y utilizar la data digita en la vista.
+                
+                e.preventDefault();// cancela el evento submit del formulario.
+                url = "@Url.Content("~/Acceso/Enter")";// creamos la variable url que contiene la ruta del controlador y el método al que se va a enviar la información.
+                parametros = $(this).serialize();// serializa los datos del formulario para enviarlos al controlador.
+
+                $.post(url, parametros, function (data) {// realizamos un post hacia el controlador y enviamos los datos serializados.
+
+                    if (data == 1) { // si la respuesta del controlador es 1, significa que el usuario y contraseña son correctos y entra al menú.
+                        document.location.href = "@Url.Content("~/")";
+                    } else {// muestra un mensaje de error si el usuario y contraseña son incorrectos.
+                        alert(data);
+                    }
+                });
+            });
+        });
+    </script>
+}
