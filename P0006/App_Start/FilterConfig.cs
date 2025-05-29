@@ -8,6 +8,7 @@ namespace P0006
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new Filters.VerificarSession()); // Agrega el filtro personalizado para verificar la sesión
         }
     }
 }
