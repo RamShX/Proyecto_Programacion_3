@@ -34,5 +34,49 @@ namespace P0006.Controllers
             }
             return View(list); //Enviamos la lista a la vista llamada Query
         }
+
+        
+        // GET: User/Add
+        [HttpGet]
+        public ActionResult Add() 
+        { 
+            return View(); // Retorna la vista Add sin ningún modelo
+        }
+
+        // POST: User/Add
+        [HttpPost]
+        public ActionResult Add(AddUserViewModels model) 
+        {
+            // Verifica si el modelo es inválido (campos vacíos, formatos incorrectos, etc.)
+            // Si no es válido, se retorna la vista con el modelo actual para mostrar los mensajes de error al usuario
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+
+            using (var db = new DBMVCEntities())
+            {
+                // Creamos un nuevo usuario
+                USER user = new USER
+                {
+                    Nombre = model.Nombre,
+                    Email = model.Email,
+                    Password = model.Password,
+                    Edad = model.Edad,
+                    idEstatus = 1 // Asignamos el estatus activo
+                };
+
+                // Agregamos el usuario a la base de datos
+                db.USERS.Add(user);
+                // Guardamos los cambios en la base de datos
+                db.SaveChanges();
+            }
+
+            return Redirect(Url.Content("~/User/Query"));// Redirige a la acción Query después de agregar el usuario exitosamente
+
+
+        }
+
     }
 }
