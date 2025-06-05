@@ -89,8 +89,8 @@ namespace P0006.Controllers
             // Abrimos la conexión a la base de datos
             using (var db = new DBMVCEntities())
             {
-                // Buscamos el usuario por su ID y verificamos que su estatus sea activo (idEstatus == 1)
-                var user = db.USERS.FirstOrDefault(u => u.ID == Id && u.idEstatus == 1);
+                // Buscamos el usuario por su ID
+                var user = db.USERS.FirstOrDefault(u => u.ID == Id);
 
                 // Si el usuario existe, asignamos sus valores al modelo
                 if (user != null)
@@ -111,7 +111,7 @@ namespace P0006.Controllers
         {
             using (var db = new DBMVCEntities())
             {
-                var user = db.USERS.FirstOrDefault(u => u.ID == model.Id && u.idEstatus == 1);
+                var user = db.USERS.FirstOrDefault(u => u.ID == model.Id);
 
 
                 // Asigna los valores del modelo al usuario
@@ -130,7 +130,23 @@ namespace P0006.Controllers
             }
 
             return Redirect(Url.Content("~/User/Querry"));
+        }
 
+        public ActionResult Delete(int id) 
+        {
+            using (var db = new DBMVCEntities())
+            {
+                // Busca el usuario por su ID y verifica que su estatus sea activo
+                var user = db.USERS.FirstOrDefault(u => u.ID == id);
+                // Si el usuario existe, lo "eliminamos"
+                if (user != null)
+                {
+                    user.idEstatus = 3; // Cambiamos el estatus a Borrado (3)
+                    db.Entry(user).State = EntityState.Modified; // Marca el usuario como modificado
+                    db.SaveChanges(); // Guarda los cambios en la base de datos
+                }
+            }
+            return Redirect(Url.Content("~/User/Query")); // Redirige a la acción Query después de eliminar el usuario
         }
     }
 }

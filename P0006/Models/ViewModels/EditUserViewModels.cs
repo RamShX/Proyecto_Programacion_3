@@ -9,6 +9,7 @@ namespace P0006.Models.ViewModels
 	public class EditUserViewModels
 	{
         public int Id { get; set; }
+
 		[Required]
 		[Display(Name = "Nombre Completo")]
         public string Nombre { get; set; }

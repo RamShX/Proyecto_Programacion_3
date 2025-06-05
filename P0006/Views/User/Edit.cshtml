@@ -1,23 +1,25 @@
-﻿@model  P0006.Models.ViewModels.AddUserViewModels
+﻿@model P0006.Models.ViewModels.EditUserViewModels
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "Actualiza";
     Layout = "~/Views/Shared/_LayoutApp.cshtml";
 }
 
-<h2>Agregar Usuario</h2>
+<h2>Actualiza Usuario</h2>
 
 <div class="col-md-12">
     <br />
     <br />
     <br />
     <div>
-        @using (Html.BeginForm("Add", "User", FormMethod.Post, new { role = "form", @class = "" }))
+        @using (Html.BeginForm("Edit", "User", FormMethod.Post, new { role = "form", @class = "" }))
         {
+            @Html.HiddenFor(m => m.Id)
+
             @Html.LabelFor(l => l.Nombre)
             @Html.TextBoxFor(t => t.Nombre, new { @class = "form-control" })
             @Html.ValidationMessage("Nombre", new { @class = "text-danger" })
-            <br />
 
+            <br />
             @Html.LabelFor(l => l.Email)
             @Html.TextBoxFor(t => t.Email, new { @class = "form-control" })
             @Html.ValidationMessage("Email", new { @class = "text-danger" })
@@ -46,7 +48,7 @@
             </div>
 
 
-
         }
     </div>
 </div>
+

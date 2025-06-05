@@ -152,6 +152,9 @@
     <Compile Include="Models\mSTATU.cs">
       <DependentUpon>DBmodel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TIPDOC.cs">
+      <DependentUpon>DBmodel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\USER.cs">
       <DependentUpon>DBmodel.tt</DependentUpon>
     </Compile>
@@ -232,6 +235,7 @@
     <Content Include="Views\Shared\_LayoutApp.cshtml" />
     <Content Include="Views\Acceso\Login.cshtml" />
     <Content Include="Views\User\Add.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
