@@ -133,7 +133,9 @@ namespace P0006.Controllers
         }
 
         public ActionResult Delete(int id) 
-        {
+        { 
+            bool eliminado = false; // Variable para verificar si el usuario fue eliminado
+
             using (var db = new DBMVCEntities())
             {
                 // Busca el usuario por su ID y verifica que su estatus sea activo
@@ -144,9 +146,10 @@ namespace P0006.Controllers
                     user.idEstatus = 3; // Cambiamos el estatus a Borrado (3)
                     db.Entry(user).State = EntityState.Modified; // Marca el usuario como modificado
                     db.SaveChanges(); // Guarda los cambios en la base de datos
+                    eliminado = true; // Cambiamos la variable a verdadero porque el usuario fue "eliminado"
                 }
             }
-            return Redirect(Url.Content("~/User/Query")); // Redirige a la acción Query después de eliminar el usuario
+            return Json(eliminado ? 1 : 0); 
         }
     }
 }
