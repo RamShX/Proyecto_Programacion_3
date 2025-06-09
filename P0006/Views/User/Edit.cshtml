@@ -4,51 +4,52 @@
     Layout = "~/Views/Shared/_LayoutApp.cshtml";
 }
 
-<h2>Actualiza Usuario</h2>
+@* Enlazar archivo CSS *@
+<link href="~/Content/user-forms.css" rel="stylesheet" />
 
-<div class="col-md-12">
-    <br />
-    <br />
-    <br />
-    <div>
-        @using (Html.BeginForm("Edit", "User", FormMethod.Post, new { role = "form", @class = "" }))
+<div class="form-page">
+    <div class="form-container">
+        <h2>Actualizar Usuario</h2>
+
+        @using (Html.BeginForm("Edit", "User", FormMethod.Post, new { role = "form", @class = "modern-form" }))
         {
             @Html.HiddenFor(m => m.Id)
 
-            @Html.LabelFor(l => l.Nombre)
-            @Html.TextBoxFor(t => t.Nombre, new { @class = "form-control" })
-            @Html.ValidationMessage("Nombre", new { @class = "text-danger" })
-
-            <br />
-            @Html.LabelFor(l => l.Email)
-            @Html.TextBoxFor(t => t.Email, new { @class = "form-control" })
-            @Html.ValidationMessage("Email", new { @class = "text-danger" })
-            <br />
-
-            @Html.LabelFor(l => l.Password)
-            @Html.TextBoxFor(t => t.Password, new { @class = "form-control" })
-            @Html.ValidationMessage("Password", new { @class = "text-danger" })
-            <br />
-
-            @Html.LabelFor(l => l.ConfirmaPassword)
-            @Html.TextBoxFor(t => t.ConfirmaPassword, new { @class = "form-control" })
-            @Html.ValidationMessage("ConfirmaPassword", new { @class = "text-danger" })
-            <br />
-
-            @Html.LabelFor(l => l.Edad)
-            @Html.TextBoxFor(t => t.Edad, new { @class = "form-control" })
-            @Html.ValidationMessage("Edad", new { @class = "text-danger" })
-            <br />
-
-            <div style="text-align: left">
-                <input type="submit" value="Guardar" class="btn btn-success btn-lg" />
-
-                <input type="button" value="Volver Atras" class="btn btn-info btn-lg"
-                       onclick="document.location.href='@Url.Content("~/User/Query")'" />
+            <div class="form-group">
+                @Html.LabelFor(l => l.Nombre)
+                @Html.TextBoxFor(t => t.Nombre, new { @class = "form-control" })
+                @Html.ValidationMessage("Nombre", new { @class = "text-danger" })
             </div>
 
+            <div class="form-group">
+                @Html.LabelFor(l => l.Email)
+                @Html.TextBoxFor(t => t.Email, new { @class = "form-control" })
+                @Html.ValidationMessage("Email", new { @class = "text-danger" })
+            </div>
 
+            <div class="form-group">
+                @Html.LabelFor(l => l.Password)
+                @Html.TextBoxFor(t => t.Password, new { @class = "form-control" })
+                @Html.ValidationMessage("Password", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(l => l.ConfirmaPassword)
+                @Html.TextBoxFor(t => t.ConfirmaPassword, new { @class = "form-control" })
+                @Html.ValidationMessage("ConfirmaPassword", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(l => l.Edad)
+                @Html.TextBoxFor(t => t.Edad, new { @class = "form-control" })
+                @Html.ValidationMessage("Edad", new { @class = "text-danger" })
+            </div>
+
+            <div class="button-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+                <input type="button" value="Volver Atrás" class="btn btn-secondary"
+                       onclick="document.location.href='@Url.Content("~/User/Query")'" />
+            </div>
         }
     </div>
 </div>
-

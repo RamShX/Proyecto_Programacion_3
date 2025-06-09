@@ -129,7 +129,7 @@ namespace P0006.Controllers
 
             }
 
-            return Redirect(Url.Content("~/User/Querry"));
+            return Redirect(Url.Content("~/User/Query"));
         }
 
         public ActionResult Delete(int id) 
@@ -140,6 +140,7 @@ namespace P0006.Controllers
             {
                 // Busca el usuario por su ID y verifica que su estatus sea activo
                 var user = db.USERS.FirstOrDefault(u => u.ID == id);
+
                 // Si el usuario existe, lo "eliminamos"
                 if (user != null)
                 {
@@ -148,8 +149,9 @@ namespace P0006.Controllers
                     db.SaveChanges(); // Guarda los cambios en la base de datos
                     eliminado = true; // Cambiamos la variable a verdadero porque el usuario fue "eliminado"
                 }
+
+                return Json(eliminado ? 1 : 0);
             }
-            return Json(eliminado ? 1 : 0); 
         }
     }
 }

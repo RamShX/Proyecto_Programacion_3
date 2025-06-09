@@ -1,0 +1,139 @@
+﻿/* tip-doc-form.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    font-family: "Poppins", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Página de tipo documento */
+.tip-doc-form {
+    min-height: 100vh;
+    padding: 30px 15px;
+    color: #333;
+}
+
+    /* Título */
+    .tip-doc-form h2 {
+        font-size: 28px;
+        color: #4a67b7;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    /* Botones superiores */
+    .tip-doc-form .btn {
+        padding: 12px 20px;
+        border-radius: 6px;
+        border: none;
+        font-size: 14px;
+        font-weight: 500;
+        margin-right: 10px;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .tip-doc-form .btn-primary {
+        background: #7494ec;
+        color: white;
+    }
+
+        .tip-doc-form .btn-primary:hover {
+            background: #5d79d0;
+            transform: translateY(-1px);
+        }
+
+    .tip-doc-form .btn-info {
+        background: #17a2b8;
+        color: white;
+    }
+
+        .tip-doc-form .btn-info:hover {
+            background: #138496;
+            transform: translateY(-1px);
+        }
+
+    .tip-doc-form .btn-danger {
+        background: #dc3545;
+        color: white;
+    }
+
+        .tip-doc-form .btn-danger:hover {
+            background: #c82333;
+            transform: translateY(-1px);
+        }
+
+    .tip-doc-form .btn-default {
+        background: #6c757d;
+        color: white;
+    }
+
+        .tip-doc-form .btn-default:hover {
+            background: #545b62;
+            transform: translateY(-1px);
+        }
+
+    /* Tabla */
+    .tip-doc-form table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .tip-doc-form th {
+        background: #4a67b7;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-size: 14px;
+    }
+
+    .tip-doc-form td {
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+        font-size: 14px;
+    }
+
+    .tip-doc-form tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .tip-doc-form tr:hover {
+        background-color: #f1f5ff;
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tip-doc-form h2 {
+        font-size: 24px;
+    }
+
+    .tip-doc-form .btn {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .tip-doc-form table {
+        font-size: 12px;
+    }
+
+    .tip-doc-form th, .tip-doc-form td {
+        padding: 10px;
+    }
+}

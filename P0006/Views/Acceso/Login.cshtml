@@ -1,48 +1,41 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_LayoutApp.cshtml";
 }
 
-<div class="row">
-    <form id="frmAcceder">
-        <div class="col-lg-6 col-lg-offset-0">
-            <br />
-            <br />
-            <br />
-            <div>
-                Usuario
+@* Enlazar archivo CSS *@
+<link href="~/Content/login-style.css" rel="stylesheet" />
+
+<div class="login-page">
+    <div class="form-box">
+        <h2>Iniciar Sesión</h2>
+        <form id="frmAcceder">
+            <div class="form-group">
+                <label for="usuario">Usuario</label>
                 <input type="text"
                        name="usuario"
-                       class="form-control" />
+                       id="usuario"
+                       placeholder="Ingrese su usuario" />
             </div>
 
-            <br />
-
-            <div>
-                Contraseña
+            <div class="form-group">
+                <label for="password">Contraseña</label>
                 <input type="password"
                        name="password"
-                       class="form-control" />
+                       id="password"
+                       placeholder="Ingrese su contraseña" />
             </div>
 
-            <br />
-            <br />
-
-            <div>
-                <input type="submit"
-                       class="btn btn-success btn-lg"
-                       value="Entrar" />
-            </div>
-        </div>
-    </form>
+            <input type="submit" value="Entrar" />
+        </form>
+    </div>
 </div>
 
 @section scripts {
     <script>
         $(document).ready(function () {
             $("#frmAcceder").submit(function (e) {//Me permite capturar el evento submit del formulario y utilizar la data digita en la vista.
-                
+
                 e.preventDefault();// cancela el evento submit del formulario.
                 url = "@Url.Content("~/Acceso/Enter")";// creamos la variable url que contiene la ruta del controlador y el método al que se va a enviar la información.
                 parametros = $(this).serialize();// serializa los datos del formulario para enviarlos al controlador.
