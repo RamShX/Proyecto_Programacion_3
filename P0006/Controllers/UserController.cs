@@ -44,6 +44,7 @@ namespace P0006.Controllers
             return View(); // Retorna la vista Add sin ningún modelo
         }
 
+
         // POST: User/Add
         [HttpPost]
         public ActionResult Add(AddUserViewModels model) 

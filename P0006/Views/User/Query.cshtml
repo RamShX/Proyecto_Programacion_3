@@ -5,7 +5,7 @@
 }
 
 @* Enlazar archivo CSS *@
-<link href="~/Content/user-forms.css" rel="stylesheet" />
+<link href="~/Content/form-style.css" rel="stylesheet" />
 
 <div class="table-page">
     <div class="content-container">
@@ -40,6 +40,7 @@
                                        class="btn btn-danger btn-sm"
                                        onclick="jsDelete(@obj.Id)"
                                        value="Borrar" />
+
                                 <input type="button"
                                        class="btn btn-warning btn-sm"
                                        onclick="document.location.href = '@Url.Content("~/User/Edit/")' + @obj.Id"

@@ -3,66 +3,60 @@
     ViewBag.Title = "Consulta Tipo Documento";
     Layout = "~/Views/Shared/_LayoutApp.cshtml";
 }
+
 @* Enlazar archivo CSS *@
+<link href="~/Content/form-style.css" rel="stylesheet" />
 
-<link rel="stylesheet" href="~/Content/tip-doc-form.css" />
+<div class="table-page">
+    <div class="content-container">
+        <h2>Consulta de Documentos</h2>
 
-<h2>Consulta Tipo Documento</h2>
-<br />
-<br />
-<br />
+        <div class="button-group top-buttons">
+            <input type="button" value="Nuevo" class="btn btn-primary"
+                   onclick="document.location.href='@Url.Content("~/TipDoc/AddTipDoc")'" />
 
-<div class="tip-doc-form">
-    <br />
-    <div class="col-md-12">
-        <input type="button"
-               value="Nuevo"
-               class="btn btn-primary btn-lg"
-               onclick="document.href='@Url.Content("~/TipDoc/AddTipDoc")'" />
+            <input type="button" value="Volver Atrás" class="btn btn-secondary"
+                   onclick="document.location.href='@Url.Content("~/")'" />
+        </div>
 
-        <input type="button"
-               value="Volver atras"
-               class="btn btn-info btn-lg"
-               onclick="document.href='@Url.Content("~/")'" />
+        <div class="table-container">
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Fecha</th>
+                        <th>Tipo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var doc in Model)
+                    {
+                        <tr>
+                            <td>@doc.ID</td>
+                            <td>@doc.TIPDOC</td>
+                            <td>@doc.DESCRIPCION</td>
+                            <td>@doc.ORIGEN</td>
+                            <td>
+                                <input type="button"
+                                       class="btn btn-danger btn-sm"
+                                       onclick="jsDelete(@doc.ID)"
+                                       value="Borrar" />
+
+                                <input type="button"
+                                       class="btn btn-warning btn-sm"
+                                       onclick="document.location.href = '@Url.Content("~/TipDoc/EditTipDoc/")' + @doc.ID"
+                                       value="Editar" />
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-
-    <br />
-    <br />
-    <br />
-    <div class="col-lg-12">
-        <table class="table table-bordered">
-            <tr>
-                <th style="background-color: aquamarine; color: white">ID</th>
-                <th style="background-color: aquamarine; color: white">Tipo</th>
-                <th style="background-color: aquamarine; color: white">Descripción</th>
-                <th style="background-color: aquamarine; color: white">Origen</th>
-                <th style="background-color: aquamarine; color: white">Acción</th>
-            </tr>
-
-            @foreach (var obj in Model)
-            {
-                <tr>
-                    <td>@obj.ID</td>
-                    <td>@obj.TIPDOC</td>
-                    <td>@obj.DESCRIPCION</td>
-                    <td>@obj.ORIGEN</td>
-                    <td>
-                        <input type="button"
-                               class="btn btn-danger btn-lg"
-                               onclick="jsDelete(@obj.ID)"
-                               value="Borrar" />
-
-                        <input type="button"
-                               class="btn btn-default btn-lg"
-                               onclick="document.location.href = '@Url.Content("~/TipDoc/EditTipDoc" + obj.ID)'"
-                               value="Editar" />
-                    </td>
-                </tr>
-            }
-        </table>
-    </div>
-
 </div>
+
 
 <script>
     function jsDelete(ID) {

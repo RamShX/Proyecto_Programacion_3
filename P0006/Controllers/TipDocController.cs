@@ -79,6 +79,7 @@ namespace P0006.Controllers
                 // Creamos una nueva instancia de TIPDOC
                 var tipDoc = new TIPDOC
                 {
+
                     TIPDOC1 = model.TIPDOC,
                     ORIGEN = model.ORIGEN,
                     DESCRIPCION = model.DESCRIPCION,
@@ -87,6 +88,7 @@ namespace P0006.Controllers
                     ESTATUS = 1 // Asignamos un estado activo
 
                 };
+
                 // Agregamos el nuevo registro a la base de datos
                 db.TIPDOCs.Add(tipDoc);
                 db.SaveChanges(); // Guardamos los cambios en la base de datos
