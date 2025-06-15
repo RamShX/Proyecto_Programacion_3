@@ -37,7 +37,7 @@
             $("#frmAcceder").submit(function (e) {//Me permite capturar el evento submit del formulario y utilizar la data digita en la vista.
 
                 e.preventDefault();// cancela el evento submit del formulario.
-                url = "@Url.Content("~/Acceso/Enter")";// creamos la variable url que contiene la ruta del controlador y el método al que se va a enviar la información.
+                url = '@Url.Content("~/Acceso/Enter")';// creamos la variable url que contiene la ruta del controlador y el método al que se va a enviar la información.
                 parametros = $(this).serialize();// serializa los datos del formulario para enviarlos al controlador.
 
                 $.post(url, parametros, function (data) {// realizamos un post hacia el controlador y enviamos los datos serializados.

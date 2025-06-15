@@ -34,6 +34,12 @@
             </div>
 
             <div class="form-group">
+                @Html.LabelFor(l => l.Contador)
+                @Html.TextBoxFor(t => t.Contador, new { @class = "form-control" })
+                @Html.ValidationMessage("Contador", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
                 @Html.LabelFor(l => l.CtaDebito)
                 @Html.TextBoxFor(t => t.CtaDebito, new { @class = "form-control" })
                 @Html.ValidationMessage("CtaDebito", new { @class = "text-danger" })

@@ -24,9 +24,9 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Título</th>
-                        <th>Fecha</th>
-                        <th>Tipo</th>
+                        <th>Tipo Documento</th>
+                        <th>Descripción</th>
+                        <th>Origen</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -60,13 +60,16 @@
 
 <script>
     function jsDelete(ID) {
+
         if (confirm("Estás seguro de borrar?")) {
-            url = "@Url.Content("~/TipoDoc/DeleteTipDoc")" + "/" + ID
+            url = '@Url.Content("~/TipDoc/DeleteTipDoc")' + "/" + ID;
 
             $.post(url, function (data) {
                 if (data == "1")
                 {
-                    document.location.href = "@Url.Content("~/TipoDoc/TipDocQuery")"
+                    document.location.href = '@Url.Content("~/TipDoc/TipDocQuery")';
+                    alert("Eliminado correctamente");
+
                 } else {
                     alert("Registro no fue borrado :)");
                 }

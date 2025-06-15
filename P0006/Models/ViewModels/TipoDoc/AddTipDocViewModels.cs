@@ -24,6 +24,11 @@ namespace P0006.Models.ViewModels.TipoDoc
         public string DESCRIPCION { get; set; }
 
         [Required]
+        [Display(Name = "Contador")]
+        [StringLength(10, ErrorMessage = "El contador debe tener un máximo de 10 caracteres.")]
+        public string Contador { get; set; } = "0"; // Inicializado a 0 por defecto
+
+        [Required]
         [Display(Name = "Cuenta Contable Debito")]
         [StringLength(20, ErrorMessage = "La cuenta contable debe tener un máximo de 20 caracteres.")]
         public string CtaDebito { get; set; }

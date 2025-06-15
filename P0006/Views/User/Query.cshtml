@@ -57,12 +57,13 @@
 
 <script>
     function jsDelete(ID) {
+
         if (confirm("Está seguro de borrar el dato")) {
-            url = "@Url.Content("~/User/Delete")" + "/" + ID;
+            url = '@Url.Content("~/User/Delete")' + "/" + ID;
 
             $.post(url, function (data) {
                 if (data == 1) {
-                    document.location.href = "@Url.Content("~/user/Query")";
+                    document.location.href = '@Url.Content("~/user/Query")';
                     alert("Eliminado correctamente");
 
                 }

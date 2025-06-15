@@ -41,6 +41,7 @@ namespace P0006.Controllers
         public ActionResult DeleteTipDoc(int id)
         {
             bool eliminado = false;
+
             using (var db = new DBMVCEntities())
             {
                 // Buscamos el registro por su ID
@@ -117,7 +118,8 @@ namespace P0006.Controllers
                 }
 
             }
-            return View();
+            
+            return View(model);
         }
 
         [HttpPost]
@@ -142,7 +144,7 @@ namespace P0006.Controllers
 
             }
 
-            return Redirect(Url.Content("~/User/Querry"));
+            return Redirect(Url.Content("~/TipDoc/TipDocQuery"));
         }
 
     }

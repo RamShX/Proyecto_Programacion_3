@@ -44,7 +44,6 @@ namespace P0006.Controllers
             return View(); // Retorna la vista Add sin ningún modelo
         }
 
-
         // POST: User/Add
         [HttpPost]
         public ActionResult Add(AddUserViewModels model) 
@@ -76,7 +75,6 @@ namespace P0006.Controllers
             }
 
             return Redirect(Url.Content("~/User/Query"));// Redirige a la acción Query después de agregar el usuario exitosamente
-
 
         }
 
@@ -133,6 +131,7 @@ namespace P0006.Controllers
             return Redirect(Url.Content("~/User/Query"));
         }
 
+        [HttpPost]
         public ActionResult Delete(int id) 
         { 
             bool eliminado = false; // Variable para verificar si el usuario fue eliminado
